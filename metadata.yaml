@@ -1,0 +1,11 @@
+name: astrbot_plugin_group_identity
+display_name: 群聊身份标注
+short_desc: 为群聊上下文注入稳定的 QQ 身份，避免昵称重复或改名导致认错人。
+desc: 在每次群聊 LLM 请求前，从 AstrBot 的平台消息历史中读取最近消息，按“昵称 (QQ:号码)”的格式注入最近群聊身份块。不改 AstrBot 核心文件，不替换原群聊上下文，只补充稳定身份信息。
+help: 安装后在插件配置中可调整注入条数和每条字符上限；默认开启。
+version: 1.0.0
+author: jiang0hai
+repo: https://github.com/jiang0hai/astrbot_plugin_group_identity
+astrbot_version: ">=4.16,<5"
+support_platforms:
+  - aiocqhttp
