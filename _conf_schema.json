@@ -1,0 +1,21 @@
+{
+  "enabled": {
+    "type": "bool",
+    "default": true,
+    "description": "启用群聊身份标注"
+  },
+  "max_messages": {
+    "type": "int",
+    "default": 20,
+    "description": "每次注入最近多少条群聊消息",
+    "min": 4,
+    "max": 50
+  },
+  "max_chars_per_message": {
+    "type": "int",
+    "default": 160,
+    "description": "每条历史消息最多保留多少字符",
+    "min": 40,
+    "max": 500
+  }
+}
