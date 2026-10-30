@@ -75,7 +75,7 @@ def _safe_text(value: Any, limit: int = 160) -> str:
     "astrbot_plugin_group_identity",
     "jiang0hai",
     "为群聊 LLM 上下文注入稳定的 QQ 身份标注，避免昵称重复或改名导致认错人。",
-    "1.0.0",
+    "1.0.1",
     "",
 )
 class GroupIdentityPlugin(Star):
@@ -167,7 +167,8 @@ class GroupIdentityPlugin(Star):
             return
 
         try:
-            req.extra_user_content_parts.append(TextPart(text=block))
+            part = TextPart(text=block).mark_as_temp()
+            req.extra_user_content_parts.append(part)
             event.set_extra("_group_identity_injected", True)
             logger.debug("群聊身份标注已注入：umo=%s rows=%s", event.unified_msg_origin, len(rows))
         except Exception as exc:
